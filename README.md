@@ -38,16 +38,18 @@ No final da etapa, a ferramenta entrega **(a)** o modelo treinado e serializado 
 $ ./setup.sh
 ```
 
-## Relação de principais dependências
-- python3
+## Relação de algumas dependências
+- python3 (versão 3.8.10)
 - sklearn==0.0
-- numpy~=1.22.3
+- scikit-learn==1.1.2 
 - pandas==1.3.4
 - matplotlib==3.5.0
 - optuna==2.10.0
 - mlxtend==0.19.0
+- jupyter==1.0.0
 - termcolor==1.1.0
-- Halo==0.9.0
+
+A relação completa das dependências está disponível em **requirements.txt**.
 
 ## Exemplos de possíveis erros e soluções de instalação 
 - **Erro** de instalação de dependências  (e.g., *A new release of pip available: 22.1.2 -> 22.2.2*)
