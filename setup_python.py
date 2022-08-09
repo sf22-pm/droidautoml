@@ -7,7 +7,7 @@ setup(
     version='1.0.0',
     author='Wabbajack',
     packages=find_packages(include=['droidautoml']),
-    description='Droidautoml tests for supervised machine learning entities',
+    description='DroidAutoML tests for supervised machine learning entities',
     license='MIT',
     install_requires=[
         'sklearn', 'numpy', 'pandas', 'matplotlib', 'optuna', 'mlxtend', 'termcolor', 'halo'
