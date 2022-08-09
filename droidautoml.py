@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 
 from droidautoml.main import make_classifier
 
@@ -22,10 +23,6 @@ import pickle
 import warnings
 warnings.filterwarnings("ignore")
 
-epilog = """
-Github: https://github.com/Malware-Hunter/sf22_quickautoml
-Versão: Pré-alfa
-"""
 def parse_args(argv):
     parse = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
                                     usage="python3 quick.py --dataset <Dataset> [opção]", add_help=False)
@@ -119,22 +116,11 @@ def parse_args(argv):
         sys.exit(1)
     return getopt
 
-
-
-
 def get_current_datetime(format="%Y%m%d%H%M%S"):
     return datetime.now().strftime(format)
 
 def show_about():
-    print("""
-***************
-Projeto:
-Licença: Proprietário
-Autoria: Malware Hunter
-Ultima Autalização: 2022 jul 14
-Nota:
-****************
-""" + epilog)
+    print("DrodAutoML v0.1")
 
 def cleaner(dataset):
     start_time = timeit.default_timer() 
@@ -165,24 +151,20 @@ def cleaner(dataset):
     time_str_cleaner = "%02d:%02d:%02d" % (h, m, s)
     print("Elapsed Time: ",time_str_cleaner)     
     return dataset_df 
+
 if __name__ == "__main__":
     getopt = parse_args(sys.argv[1:])
     start_time_geral = timeit.default_timer() 
+    if len(sys.argv) < 2:
+        print ("Usage: " + sys.argv[0] + " -h")
+        exit(1)
     if getopt.about:
         show_about()
         exit(1)
-
-  
-
     try:
-        
         dataset_file_path = getopt.dataset
-        
         dataset_name = basename(dataset_file_path)
-            	
         dataset_df = cleaner(getopt.dataset)#pd.read_csv(dataset_file_path, encoding='utf8')
-        
-        
     except BaseException as e:
         Log.high("Error", e)
         exit(1)
